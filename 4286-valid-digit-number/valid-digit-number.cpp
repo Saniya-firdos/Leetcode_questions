@@ -2,19 +2,26 @@ class Solution {
 public:
     bool validDigit(int n, int x) {
 
-  string s = to_string(n);
+ int first = n;
 
-  if(s[0]-'0' == x){
+ while(first>=10){
+    first = first/10;
+
+ }
+ if(first ==x){
     return false;
-  }
+ }
 
-  for(int i=1;i < s.size();i++){
-    if(s[i] - '0' == x){
+ while(n>0){
+    int digit = n%10;
+
+    if(digit == x){
         return true;
     }
-  }
 
-  return  false;
+    n = n/10;
+ }
+ return false;
         
         
     }
